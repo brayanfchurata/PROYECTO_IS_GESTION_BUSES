@@ -20,6 +20,7 @@ const form = useForm({
     email: '',
     password: '',
     remember: false,
+    role: "Cargo"
 });
 
 const submit = () => {
@@ -67,6 +68,22 @@ const submit = () => {
                 />
 
                 <InputError class="mt-2" :message="form.errors.password" />
+            </div>
+            <div>
+                <InputLabel for="rol" value="Role"/>
+                <select
+                    id="role"
+                    v-model="form.role"
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    required
+                >
+                    <option value="admin">Administrador</option>
+                    <option value="conductor">Conductor</option>
+                    <option value="pasajero">Pasajero</option>
+                    <option value="mantenimiento">Personal de Mantenimiento</option>
+                </select>
+
+                <InputError class="mt-2" :message="form.errors.role" />
             </div>
 
             <div class="mt-4 block">

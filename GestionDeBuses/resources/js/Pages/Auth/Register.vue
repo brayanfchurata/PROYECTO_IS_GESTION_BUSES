@@ -11,6 +11,7 @@ const form = useForm({
     email: '',
     password: '',
     password_confirmation: '',
+     role: ''
 });
 
 const submit = () => {
@@ -92,6 +93,25 @@ const submit = () => {
                 />
             </div>
 
+            <!-- Campo de selección para el rol -->
+            <div class="mt-4">
+                <InputLabel for="role" value="Role" />
+
+                <select
+                    id="role"
+                    v-model="form.role"
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    required
+                >
+                    <option value="admin">Administrador</option>
+                    <option value="conductor">Conductor</option>
+                    <option value="pasajero">Pasajero</option>
+                    <option value="mantenimiento">Personal de Mantenimiento</option>
+                </select>
+
+                <InputError class="mt-2" :message="form.errors.role" />
+            </div>
+
             <div class="mt-4 flex items-center justify-end">
                 <Link
                     :href="route('login')"
@@ -111,3 +131,26 @@ const submit = () => {
         </form>
     </GuestLayout>
 </template>
+
+<script>
+
+
+export default {
+    setup() {
+        const form = useForm({
+            name: "",
+            email: "",
+            password: "",
+            password_confirmation: "",
+            role: " ", // Rol predeterminado
+        });
+
+        const submit = () => {
+            form.post(route("register"));
+        };
+
+        return { form, submit };
+    },
+};
+</script>
+
