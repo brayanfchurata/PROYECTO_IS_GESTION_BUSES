@@ -27,14 +27,44 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
+    public function store(Request $request)
+{
+    // Validación de los campos
+    $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required', 'string'],
+        'role' => ['required', 'in:admin,conductor,pasajero,mantenimiento'], // Validación del rol
+    ]);
 
-        $request->session()->regenerate();
+    // Intentar autenticar al usuario con el email y la contraseña
+    if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        $user = Auth::user();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Verificar si el rol seleccionado es el correcto
+        if ($user->role === $request->role) {
+            // Redirigir a la ruta correspondiente según el rol
+            if ($user->role == 'admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->role == 'conductor') {
+                return redirect()->route('driver.dashboard');
+            } elseif ($user->role == 'pasajero') {
+                return redirect()->route('passenger.dashboard');
+            } elseif ($user->role == 'mantenimiento') {
+                return redirect()->route('maintenance.dashboard');
+            }
+        } else {
+            // Si el rol no coincide, redirigir con error
+            Auth::logout();
+            return back()->withErrors([
+                'role' => 'The selected role does not match your account role.',
+            ]);
+        }
     }
+
+    return back()->withErrors([
+        'email' => 'These credentials do not match our records.',
+    ]);
+}
 
     /**
      * Destroy an authenticated session.
