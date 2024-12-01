@@ -57,6 +57,6 @@ class RegisteredUserController extends Controller
             return redirect()->route('maintenance.dashboard');
         }
 
-        return redirect(route('dashboard', absolute: false));
+        
     }
 }

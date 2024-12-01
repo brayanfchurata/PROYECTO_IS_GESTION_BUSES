@@ -1,1 +1,0 @@
-import{_ as o}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{c as r,b as a,o as s}from"./app-Dt_S3IiG.js";const n={name:"DriverDashboard"};function t(d,e,l,p,c,f){return s(),r("div",null,e[0]||(e[0]=[a("h1",null,"Dashboard del Pasajero",-1),a("p",null,"Bienvenido al panel del Pasajero.",-1)]))}const m=o(n,[["render",t],["__scopeId","data-v-198f5f66"]]);export{m as default};

@@ -16,7 +16,7 @@
         @inertiaHead
 
         <!-- Vincula el archivo CSS -->
-        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
     <body class="font-sans antialiased">
         @inertia
