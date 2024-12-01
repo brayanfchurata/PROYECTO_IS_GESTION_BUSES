@@ -93,7 +93,7 @@ defineProps({
 }
 
 .btn-header {
-    color: white;
+    color: rgb(2, 3, 40);
     text-decoration: none;
     padding: 0.75rem 1.25rem;
     background-color: rgba(255, 255, 255, 0.6); /* Fondo claro para los botones */
