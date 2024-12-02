@@ -21,8 +21,24 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-  return Inertia::render('Dashboard');
+    // Verifica el rol del usuario autenticado
+    $user = auth()->user();
+    
+    // Redirige al dashboard correspondiente según el rol
+    if ($user->role == 'admin') {
+        return redirect()->route('admin.dashboard');
+    } elseif ($user->role == 'driver') {
+        return redirect()->route('driver.dashboard');
+    } elseif ($user->role == 'passenger') {
+        return redirect()->route('passenger.dashboard');
+    } elseif ($user->role == 'maintenance') {
+        return redirect()->route('maintenance.dashboard');
+    }
+
+    // Si no se encuentra un rol válido, puedes redirigir a la página de inicio o mostrar un error
+    return redirect('/'); // Redirige a la página principal si no tiene un rol válido
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 //roles especificos
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
