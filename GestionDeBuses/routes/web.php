@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\DriverDashboardController;
 use App\Http\Controllers\MaintenanceDashboardController;
 use App\Http\Controllers\PassengerDashboardController;
+use App\Http\Controllers\BusController;
 
 
 
@@ -38,4 +39,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::prefix('Admin/Dasboard')->group(function(){
+    Route::get('Admin',[BusController::class,'index'])->name('admin.bus');
+    Route::get('Admin/FormularioBus',[BusController::class,'create'])->name('Admin.FormularioBus');
+   Route::post('Admin',[BusController:: class, 'store'])->name('Admin.store');
+});
 require __DIR__.'/auth.php';
