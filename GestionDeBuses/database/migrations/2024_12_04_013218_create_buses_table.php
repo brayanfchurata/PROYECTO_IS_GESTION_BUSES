@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('Modelo',100);
             $table->integer('Capacidad');
             $table->timestamps();
+
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade'); 
         });
     }
 

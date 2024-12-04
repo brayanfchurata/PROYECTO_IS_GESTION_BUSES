@@ -11,6 +11,12 @@ class Bus extends Model
         'Marca',
         'Modelo',
         'Capacidad',
+        'user_id',
         
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');  // Relación inversa
+    }
 }

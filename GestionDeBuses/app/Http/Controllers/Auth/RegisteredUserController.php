@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
         if ($user->role == 'admin') {
             return redirect()->route('admin.dashboard');
         } elseif ($user->role == 'conductor') {
-            return redirect()->route('driver.dashboard');
+            return redirect()->route('driver.dasboard');
         } elseif ($user->role == 'pasajero') {
             return redirect()->route('passenger.dashboard');
         } elseif ($user->role == 'mantenimiento') {

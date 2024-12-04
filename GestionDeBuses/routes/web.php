@@ -9,6 +9,7 @@ use App\Http\Controllers\DriverDashboardController;
 use App\Http\Controllers\MaintenanceDashboardController;
 use App\Http\Controllers\PassengerDashboardController;
 use App\Http\Controllers\BusController;
+use App\Http\Controllers\AdminCoductoresController;
 
 
 
@@ -44,4 +45,6 @@ Route::prefix('Admin/Dasboard')->group(function(){
     Route::get('Admin/FormularioBus',[BusController::class,'create'])->name('Admin.FormularioBus');
    Route::post('Admin',[BusController:: class, 'store'])->name('Admin.store');
 });
+
+Route::get('/admin/conductores', [AdminCoductoresController::class, 'index'])->name('admin.conductores');
 require __DIR__.'/auth.php';

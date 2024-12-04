@@ -50,15 +50,15 @@ const showingNavigationDropdown = ref(false);
                                     Buses
                                 </NavLink>
                                 <NavLink
-                                    :href="route('admin.dashboard')"
-                                    :active="route().current('admin.dashboard')"
+                                    :href="route('admin.conductores')"
+                                    :active="route().current('admin.conductores')"
                                     class="text-white hover:text-gray-300"
                                 >
                                     Conductores
                                 </NavLink>
                                 <NavLink
                                     :href="route('admin.dashboard')"
-                                    :active="route().current('admin.dashboard')"
+                                    :active="route().current('admin.dasboard')"
                                     class="text-white hover:text-gray-300"
                                 >
                                     Horario

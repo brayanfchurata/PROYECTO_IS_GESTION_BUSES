@@ -27,4 +27,8 @@ return new class extends Migration
             $table->dropColumn('role');
         });
     }
+    public function buses()
+    {
+        return $this->hasMany(Bus::class, 'user_id');  // Relación de uno a muchos
+    }
 };
