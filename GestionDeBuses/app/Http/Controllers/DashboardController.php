@@ -8,6 +8,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Dashboard'); // Renderiza la vista del dashboard
+        return Inertia::render('Admin/Dashboard'); // Renderiza la vista del dashboard
     }
 }

@@ -10,7 +10,7 @@ class DriverDashboardController extends Controller
     public function index()
     {
         // Retorna una vista para el panel de administrador
-        return Inertia::render('Driver/Dashboard', [
+        return Inertia::render('Driver/Dasboard', [
            
         ]);
     }

@@ -31,9 +31,9 @@ defineProps({
 
                     <!-- Enlaces de Login y Register en la esquina superior derecha -->
                     <nav class="flex space-x-4">
-                        <a href="/login" class="btn-header">Login</a>
-                        <a href="/register" class="btn-header">Register</a>
-                    </nav>
+    <a v-if="canLogin" href="/login" class="btn-header">Login</a>
+    <a v-if="canRegister" href="/register" class="btn-header">Register</a>
+</nav>
                 </header>
 
                 <main class="main-content">

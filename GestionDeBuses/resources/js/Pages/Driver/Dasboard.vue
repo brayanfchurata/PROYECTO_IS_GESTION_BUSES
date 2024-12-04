@@ -1,12 +1,12 @@
 <script setup>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import AuthenticatedLayoutConductor from '@/Layouts/AuthenticatedLayoutConductor.vue';
 import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <Head title="DashboardConductor" />
+    <Head title="DashboaarConductor" />
 
-    <AuthenticatedLayout>
+    <AuthenticatedLayoutConductor>
         <template #header>
             <h2
                 class="text-xl font-semibold leading-tight text-gray-800"
@@ -26,5 +26,5 @@ import { Head } from '@inertiajs/vue3';
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout>
+    </AuthenticatedLayoutConductor>
 </template>

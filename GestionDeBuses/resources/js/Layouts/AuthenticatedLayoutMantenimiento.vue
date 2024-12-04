@@ -22,7 +22,7 @@ const showingNavigationDropdown = ref(false);
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex shrink-0 items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('maintenance.dashboard')">
                                     <!-- Usar una imagen personalizada -->
                                     <img 
                                         src="/images/unap-logo.png" 
@@ -36,33 +36,34 @@ const showingNavigationDropdown = ref(false);
                                 class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
                             >
                                 <NavLink
-                                    :href="route('dashboard')"
-                                    :active="route().current('dashboard')"
+                                    :href="route('maintenance.dashboard')"
+                                    :active="route().current('maintenance.dashboard')"
                                     class="text-white hover:text-gray-300"
                                 >
-                                    Dashboard
+                                    Home
                                 </NavLink>
                                 <NavLink
-                                    :href="route('dashboard')"
-                                    :active="route().current('dashboard')"
+                                    :href="route('maintenance.dashboard')"
+                                    :active="route().current('maintenance.dashboard')"
                                     class="text-white hover:text-gray-300"
                                 >
-                                    Buses
+                                    Notificación
                                 </NavLink>
                                 <NavLink
-                                    :href="route('dashboard')"
-                                    :active="route().current('dashboard')"
+                                    :href="route('maintenance.dashboard')"
+                                    :active="route().current('maintenance.dashboard')"
                                     class="text-white hover:text-gray-300"
                                 >
-                                    Conductores
+                                    Mantenimiento
                                 </NavLink>
                                 <NavLink
-                                    :href="route('dashboard')"
-                                    :active="route().current('dashboard')"
+                                    :href="route('maintenance.dashboard')"
+                                    :active="route().current('maintenance.dashboard')"
                                     class="text-white hover:text-gray-300"
                                 >
-                                    Horario
+                                    notificación
                                 </NavLink>
+                               
                             </div>
                         </div>
 
@@ -165,8 +166,8 @@ const showingNavigationDropdown = ref(false);
                 >
                     <div class="space-y-1 pb-3 pt-2">
                         <ResponsiveNavLink
-                            :href="route('dashboard')"
-                            :active="route().current('dashboard')"
+                            :href="route('maintenance.dashboard')"
+                            :active="route().current('maintenance.dashboard')"
                         >
                             Dashboard
                         </ResponsiveNavLink>
