@@ -10,6 +10,10 @@ use App\Http\Controllers\MaintenanceDashboardController;
 use App\Http\Controllers\PassengerDashboardController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\AdminCoductoresController;
+use App\Http\Controllers\AdminViajesController;
+use App\Http\Controllers\ViajeController;
+use App\Http\Controllers\ConductorViajesController;
+
 
 
 
@@ -47,4 +51,20 @@ Route::prefix('Admin/Dasboard')->group(function(){
 });
 
 Route::get('/admin/conductores', [AdminCoductoresController::class, 'index'])->name('admin.conductores');
+
+
+
+Route::prefix('admin/dashboard')->name('admin.')->group(function () {
+    Route::get('viajes', [ViajeController::class, 'index'])->name('viajes');
+    Route::get('viajes/create', [ViajeController::class, 'create'])->name('formularioViaje');
+    Route::post('viajes', [ViajeController::class, 'store'])->name('viajes.store');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/conductor/ConductorRutas', [ConductorViajesController::class, 'index'])->name('driver.conductorRutas');
+});
+
+
+
+
 require __DIR__.'/auth.php';

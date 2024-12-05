@@ -47,14 +47,14 @@ const showingNavigationDropdown = ref(false);
                                     :active="route().current('driver.dasboard')"
                                     class="text-white hover:text-gray-300"
                                 >
-                                    Rutas
+                                    Viajes
                                 </NavLink>
                                 <NavLink
-                                    :href="route('driver.dasboard')"
-                                    :active="route().current('driver.dasboard')"
+                                    :href="route('driver.conductorRutas')"
+                                    :active="route().current('driver.conductorRutas')"
                                     class="text-white hover:text-gray-300"
                                 >
-                                    Horario
+                                    Viajes
                                 </NavLink>
                                 <NavLink
                                     :href="route('driver.dasboard')"

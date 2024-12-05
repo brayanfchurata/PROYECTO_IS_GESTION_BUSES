@@ -57,11 +57,11 @@ const showingNavigationDropdown = ref(false);
                                     Conductores
                                 </NavLink>
                                 <NavLink
-                                    :href="route('admin.dashboard')"
-                                    :active="route().current('admin.dasboard')"
+                                    :href="route('admin.viajes')"
+                                    :active="route().current('admin.viajes')"
                                     class="text-white hover:text-gray-300"
                                 >
-                                    Horario
+                                    Viajes
                                 </NavLink>
                             </div>
                         </div>

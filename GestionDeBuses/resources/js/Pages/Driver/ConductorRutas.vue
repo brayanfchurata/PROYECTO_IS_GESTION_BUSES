@@ -4,14 +4,14 @@ import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <Head title="Conductor" />
+    <Head title="Viajes" />
 
     <AuthenticatedLayoutConductor>
         <template #header>
             <h2
                 class="text-xl font-semibold leading-tight text-gray-800"
             >
-                CONDUCTOR
+                Viajes
             </h2>
         </template>
 
