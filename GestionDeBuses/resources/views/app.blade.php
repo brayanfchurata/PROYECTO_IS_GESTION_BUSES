@@ -19,6 +19,7 @@
         @inertiaHead
 
         <!-- Vincula el archivo CSS -->
+         
         
     </head>
     <body class="font-sans antialiased">

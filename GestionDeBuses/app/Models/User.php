@@ -46,4 +46,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function viajes()
+    {
+        return $this->hasMany(Viaje::class);  // Relación con el modelo Viaje
+    }
+
+    // Relación con los buses: Un conductor puede tener muchos buses
+    public function buses()
+    {
+        return $this->hasMany(Bus::class); // Relación con el modelo Bus
+    }
 }

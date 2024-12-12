@@ -15,6 +15,7 @@ class Viaje extends Model
         'destinatario',
         'fecha_hora_inicio',
         'fecha_hora_llegada',
+        'estado',
     ];
 
     // Relación con el modelo Bus (Autobús)
@@ -28,4 +29,5 @@ class Viaje extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    
 }

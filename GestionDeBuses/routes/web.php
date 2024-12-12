@@ -61,9 +61,16 @@ Route::prefix('admin/dashboard')->name('admin.')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/conductor/ConductorRutas', [ConductorViajesController::class, 'index'])->name('driver.conductorRutas');
+    Route::get('/Driver/ConductorRutas', [ConductorViajesController::class, 'index'])->name('driver.conductorRutas');
 });
 
+Route::middleware('auth')->group(function() {
+    Route::get('/driver/conductorRutas', [ConductorViajesController::class, 'index']);
+    
+    // Esta línea debería tener 'patch'
+    Route::patch('/driver/conductorRutas/{id}', [ConductorViajesController::class, 'cambiarEstado'])->name('driver.cambiarEstado');
+
+});
 
 
 

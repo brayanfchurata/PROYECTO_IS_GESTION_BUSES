@@ -42,34 +42,15 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Home
                                 </NavLink>
-                                <NavLink
-                                    :href="route('driver.dasboard')"
-                                    :active="route().current('driver.dasboard')"
-                                    class="text-white hover:text-gray-300"
-                                >
-                                    Viajes
-                                </NavLink>
+                                
                                 <NavLink
                                     :href="route('driver.conductorRutas')"
                                     :active="route().current('driver.conductorRutas')"
                                     class="text-white hover:text-gray-300"
                                 >
-                                    Viajes
+                                    Viaje
                                 </NavLink>
-                                <NavLink
-                                    :href="route('driver.dasboard')"
-                                    :active="route().current('driver.dasboard')"
-                                    class="text-white hover:text-gray-300"
-                                >
-                                    calificación
-                                </NavLink>
-                                <NavLink
-                                    :href="route('driver.dasboard')"
-                                    :active="route().current('driver.dasboard')"
-                                    class="text-white hover:text-gray-300"
-                                >
-                                    Reporte de fallas
-                                </NavLink>
+                                
                                
                             </div>
                         </div>
