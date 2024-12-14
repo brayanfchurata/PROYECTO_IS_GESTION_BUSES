@@ -25,8 +25,8 @@ const showingNavigationDropdown = ref(false);
                                 <Link :href="route('admin.dashboard')">
                                     <!-- Usar una imagen personalizada -->
                                     <img 
-                                        src="/images/unap-logo.png" 
-                                        class="block h-9 w-auto" 
+                                        src="/images/E-Corpb.png" 
+                                        class="block h-11 w-auto" 
                                     />
                                 </Link>
                             </div>
