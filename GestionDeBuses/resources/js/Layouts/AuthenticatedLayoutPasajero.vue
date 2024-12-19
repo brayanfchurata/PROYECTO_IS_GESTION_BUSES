@@ -43,19 +43,13 @@ const showingNavigationDropdown = ref(false);
                                     Home
                                 </NavLink>
                                 <NavLink
-                                    :href="route('passenger.dashboard')"
-                                    :active="route().current('passenger.dashboard')"
+                                    :href="route('passenger.buscarRuta')"
+                                    :active="route().current('passenger.buscarRuta')"
                                     class="text-white hover:text-gray-300"
                                 >
                                     Calificar
                                 </NavLink>
-                                <NavLink
-                                    :href="route('passenger.dashboard')"
-                                    :active="route().current('passenger.dashboard')"
-                                    class="text-white hover:text-gray-300"
-                                >
-                                    Historial
-                                </NavLink>
+                                
                                 
                                
                             </div>

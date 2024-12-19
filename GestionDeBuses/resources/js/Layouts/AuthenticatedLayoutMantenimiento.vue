@@ -43,26 +43,13 @@ const showingNavigationDropdown = ref(false);
                                     Home
                                 </NavLink>
                                 <NavLink
-                                    :href="route('maintenance.dashboard')"
-                                    :active="route().current('maintenance.dashboard')"
-                                    class="text-white hover:text-gray-300"
-                                >
-                                    Notificación
-                                </NavLink>
-                                <NavLink
-                                    :href="route('maintenance.dashboard')"
-                                    :active="route().current('maintenance.dashboard')"
+                                    :href="route('maintenance.mantenimiento')"
+                                    :active="route().current('maintenance.mantenimiento')"
                                     class="text-white hover:text-gray-300"
                                 >
                                     Mantenimiento
                                 </NavLink>
-                                <NavLink
-                                    :href="route('maintenance.dashboard')"
-                                    :active="route().current('maintenance.dashboard')"
-                                    class="text-white hover:text-gray-300"
-                                >
-                                    notificación
-                                </NavLink>
+                                
                                
                             </div>
                         </div>

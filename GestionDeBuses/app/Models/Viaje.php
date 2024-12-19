@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Viaje extends Model
 {
@@ -30,4 +31,16 @@ class Viaje extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
     
+    public function reportes()
+    {
+        return $this->hasMany(Reporte::class, 'viaje_id');
+    }
+    
+    public function conductor() { return $this->belongsTo(User::class, 'user_id');
+    }
+       
+    protected static function boot() { parent::boot(); static::creating(function ($model) { $model->codigo = Str::random(4);});} // Generar código único de 4 caracteres alfanuméricos }); }
+    
+
+
 }

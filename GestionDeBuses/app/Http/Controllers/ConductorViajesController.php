@@ -59,5 +59,12 @@ class ConductorViajesController extends Controller
             'success' => 'Estado del viaje actualizado correctamente.',
         ]);
     }
-
+    public function reportarProblema($viajeId)
+    {
+        // Aquí puedes realizar cualquier acción que necesites (como registrar el reporte).
+        return Inertia::render('ReportarProblema', [
+            'viajeId' => $viajeId, // Pasa el ID del viaje como prop al componente
+        ]);
+    }
+    
 }

@@ -21,9 +21,9 @@ const updateEstado = async (viajeId, estado) => {
         const viaje = viajes.find(v => v.id === viajeId);
         if (viaje) {
             viaje.estado = estado;
+
             // Si el estado es "terminado", eliminamos el viaje de la lista
             if (estado === 'terminado') {
-                // Eliminamos el viaje del array local de viajes
                 const index = viajes.indexOf(viaje);
                 if (index !== -1) {
                     viajes.splice(index, 1);
@@ -37,11 +37,18 @@ const updateEstado = async (viajeId, estado) => {
 
 // Método para cambiar el estado en el frontend (localmente)
 const toggleEstado = (viaje) => {
-    // Determinamos el nuevo estado del viaje
     const nuevoEstado = viaje.estado === 'terminado' ? 'en_proceso' : 'terminado';
-    
-    // Actualizamos el estado en el backend y en el frontend
     updateEstado(viaje.id, nuevoEstado);
+};
+
+// Método para reportar problemas técnicos del bus
+const reportarProblema = (viaje) => {
+    Inertia.get(route('driver.reportarProblema', { viajeId: viaje.id }));
+};
+
+// Método para generar boleta
+const generarBoleta = (viaje) => {
+    alert(`Generando boleta para el viaje con ID: ${viaje.id}`);
 };
 </script>
 
@@ -75,7 +82,7 @@ const toggleEstado = (viaje) => {
                                         {{ viaje.estado === 'terminado' ? 'Terminado' : 'En Proceso' }}
                                     </span>
 
-                                    <!-- Solo muestra el checkbox si el viaje no está terminado -->
+                                    <!-- Checkbox para marcar como terminado -->
                                     <template v-if="viaje.estado !== 'terminado'">
                                         <input 
                                             type="checkbox" 
@@ -86,6 +93,7 @@ const toggleEstado = (viaje) => {
                                         />
                                     </template>
                                 </div>
+                                <div class="text-gray-600 mb-2"> <strong>Código del Viaje:</strong> {{ viaje.codigo }} </div>
 
                                 <div class="space-y-2 text-gray-600">
                                     <p><strong>Origen:</strong> {{ viaje.origen_viaje }}</p>
@@ -98,11 +106,27 @@ const toggleEstado = (viaje) => {
                                     <p><strong>Bus Asignado:</strong> {{ viaje.bus.Marca }} {{ viaje.bus.Modelo }}</p>
                                     <p><strong>Placa:</strong> {{ viaje.bus.placa }}</p>
                                     <p><strong>Capacidad:</strong> {{ viaje.bus.Capacidad }} pasajeros</p>
+
+                                    <!-- Botón para reportar problemas técnicos -->
+                                    <button 
+                                        v-if="viaje.estado !== 'terminado'" 
+                                        @click="reportarProblema(viaje)" 
+                                        class="mt-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+                                        Reportar Problema Técnico
+                                    </button>
                                 </div>
 
                                 <div v-else class="mt-4 p-4 bg-gray-100 rounded-lg">
                                     <p>No se ha asignado un bus para este viaje.</p>
                                 </div>
+
+                                <!-- Botón para generar boleta -->
+                                <button 
+                                    v-if="viaje.estado === 'terminado'" 
+                                    @click="generarBoleta(viaje)" 
+                                    class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                                    Generar Boleta
+                                </button>
                             </div>
                         </div>
 

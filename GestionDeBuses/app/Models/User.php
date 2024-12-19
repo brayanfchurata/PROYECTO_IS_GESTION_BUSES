@@ -49,12 +49,18 @@ class User extends Authenticatable
 
     public function viajes()
     {
-        return $this->hasMany(Viaje::class);  // Relación con el modelo Viaje
+        return $this->hasMany(Viaje::class, 'user_id');
     }
-
-    // Relación con los buses: Un conductor puede tener muchos buses
+    
     public function buses()
     {
-        return $this->hasMany(Bus::class); // Relación con el modelo Bus
+        return $this->hasMany(Bus::class, 'user_id'); // Asegúrate de que el nombre de la clave sea correcto
     }
+    
+    
+    public function reportes()
+    {
+        return $this->hasMany(Reporte::class, 'user_id');
+    }
+
 }

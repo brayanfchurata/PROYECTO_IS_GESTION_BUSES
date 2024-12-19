@@ -13,6 +13,10 @@ use App\Http\Controllers\AdminCoductoresController;
 use App\Http\Controllers\AdminViajesController;
 use App\Http\Controllers\ViajeController;
 use App\Http\Controllers\ConductorViajesController;
+use App\Http\Controllers\ConductorReorteController;
+use App\Http\Controllers\MantenimientoPersonalController;
+use App\Http\Controllers\PassengerBuscarController;
+
 
 
 
@@ -71,7 +75,39 @@ Route::middleware('auth')->group(function() {
     Route::patch('/driver/conductorRutas/{id}', [ConductorViajesController::class, 'cambiarEstado'])->name('driver.cambiarEstado');
 
 });
+//------------------------------
 
 
+// Ruta para reportar un problema técnico
+
+
+Route::get('/reportar-problema/{viajeId}', function ($viajeId) {
+    $viaje = App\Models\Viaje::findOrFail($viajeId);
+    return Inertia::render('Driver/ReportarProblema', [
+        'viaje' => $viaje,
+    ]);
+})->name('driver.reportarProblema');
+
+
+
+Route::middleware(['auth'])->group(function () {
+    // Ruta para mostrar el formulario de reporte
+    Route::get('/conductor/reportar-problema', [ConductorReorteController::class, 'create'])->name('driver.reportarProblema.create');
+    
+    // Ruta para almacenar el reporte
+    Route::post('/conductor/reportar-problema', [ConductorReorteController::class, 'store'])->name('driver.reportarProblema.store');
+});
+
+
+Route::get('/maintenance', [MantenimientoPersonalController::class, 'index'])->name('maintenance.mantenimiento');
+Route::patch('/maintenance/{id}/estado', [MantenimientoPersonalController::class, 'updateEstado'])->name('maintenance.updateEstado');
+
+
+
+
+// web.php
+
+
+Route::post('/Passenger/BuscarRuta', [PassengerBuscarController::class, 'buscarRuta'])->name('passenger.buscarRuta');
 
 require __DIR__.'/auth.php';
