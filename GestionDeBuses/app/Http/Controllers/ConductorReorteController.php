@@ -53,6 +53,6 @@ class ConductorReorteController extends Controller
     // Redirigir a una página después de guardar el reporte
     return redirect()->route('driver.conductorRutas');
 }
-public function show(Viaje $viaje) { $reportado = Problema::where('viaje_id', $viaje->id)->exists(); return Inertia::render('ReportarProblema', [ 'viaje' => $viaje, 'reportado' => $reportado, ]); }
+
 
 }

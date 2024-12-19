@@ -20,6 +20,8 @@
     },
     "dependencies": {
         "@inertiajs/inertia-vue3": "^0.6.0",
-        "leaflet": "^1.9.4"
+        "chart.js": "^4.4.7",
+        "leaflet": "^1.9.4",
+        "vue-chartjs": "^5.3.2"
     }
 }
